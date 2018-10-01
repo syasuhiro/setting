@@ -1,0 +1,59 @@
+# 環境変数
+# export LANG=ja_JP.UTF-8
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# ヒストリの設定
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# 直前のコマンドの重複を削除
+setopt hist_ignore_dups
+
+# 同じコマンドをヒストリに残さない
+setopt hist_ignore_all_dups
+
+# 同時に起動したzshの間でヒストリを共有
+setopt share_history
+
+# ビープ音を鳴らさない
+setopt no_beep
+
+# cd した先のディレクトリをディレクトリスタックに追加する
+# ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
+# `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
+setopt auto_pushd
+
+# pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
+setopt pushd_ignore_dups
+
+# 補完で大文字にもマッチ
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 補完機能を有効にする
+autoload -Uz compinit
+compinit -u
+
+# prompt
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{magenta}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}+"
+zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd() { vcs_info }
+PROMPT='%m:%F{green}%~%f %n %F{yellow}$%f '
+RPROMPT='${vcs_info_msg_0_}'
+
+# vi
+bindkey -v
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/user/Documents/develop/AP2/ap-api/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/user/Documents/develop/AP2/ap-api/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/user/Documents/develop/AP2/ap-api/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/user/Documents/develop/AP2/ap-api/node_modules/tabtab/.completions/sls.zsh

@@ -1,0 +1,112 @@
+// for Mac
+{
+    // terminal
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+
+    // workbench
+    // req: karyfoundation.theme-karyfoundation-themes
+    "workbench.iconTheme": "kary-standard-icons",
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.statusBar.visible": true,
+
+    // editor
+    // req: https://github.com/madmalik/mononoki
+    "editor.fontFamily": "mononoki, kiloji",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 22,
+    "editor.renderWhitespace": "boundary",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": false,
+    "editor.detectIndentation": true,
+    "editor.codeLens": false,
+
+    // file
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/.DS_Store": false
+    },
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "Vagrantfile": "ruby"
+    },
+    "files.eol": "\n",
+
+    // language
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true
+    },
+    "[sugarss]": {
+        "editor.tabSize": 2
+    },
+    "javascript.validate.enable": false,
+    "typescript.autoImportSuggestions.enabled": false,
+    // req: esbenp.prettier-vscode
+    "prettier.eslintIntegration": true,
+
+    // vim
+    // req: vscodevim.vim
+    "vim.disableExtension": false,
+    "vim.useSystemClipboard": true,
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo"
+                }
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo"
+                }
+            ]
+        }
+    ],
+    "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
+    "gitlens.keymap": "alternate",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    }
+}
